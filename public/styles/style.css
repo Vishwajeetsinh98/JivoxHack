@@ -7,7 +7,7 @@ body{
 
 /*Header and Nav starts here*/
 .brand-logo{
-	margin-top: 30px; 
+	margin-top: 30px; margin-left: 100px;
 }
 
 .brand-logo .fa{
@@ -19,16 +19,33 @@ header{
 }
 
 .header-text-box{
-	position: absolute; top: 20%; width: 100%;
+	position: absolute; top: 40%; width: 100%; font-size: 28px;
 }
 
 .header-text-box input{
-	background: #fff; border-radius: 50px 50px 50px 50px; box-shadow: 2px 2px 1px 0 #6a6a6a;
+	background: #fff; 
 }
 
+.header-text-box button{
+	font-size: 18px; border-radius: 50px 50px 50px 50px; box-shadow: 2px 2px 1px 0 #6a6a6a; position: relative; top: -70px;
+}
+
+.second-row-in-header{
+	position: relative;
+	top: -40px;
+}
+
+.button-row-in-header{
+	position: relative;
+	top: -40px;
+}
 /*Header and Nav ends here*/
 
 /*Content of the Home screen starts here*/
+.main-content{
+	min-height: 100vh;
+}
+
 .home-halfs{
 	padding: 100px; height: 150px; padding: 50px !important; text-align: center;
 }
