@@ -64,7 +64,8 @@ header{
 }
 
 .written-content{
-	margin: auto; margin: 5px;
+	margin: auto; margin-top: 35px;
+	height: 200px; 
 }
 
 /*Content of the home screen ends here*/
