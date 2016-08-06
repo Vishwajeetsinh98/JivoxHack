@@ -3,17 +3,17 @@
 
 ###Technologies used
 ====================
-Frontend
-	*Angular
-	*Materialize
-	*Chart.js
-	*Font-Awesome
-	*JQuery
-	*WOW.js
-	*Animate.css
+Frontend:
+	* Angular
+	* Materialize
+	* Chart.js
+	* Font-Awesome
+	* JQuery
+	* WOW.js
+	* Animate.css
 
-Backend
-	*Node.js
-	*Express
+Backend:
+	* Node.js
+	* Express
 
 
