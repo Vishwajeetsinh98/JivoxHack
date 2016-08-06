@@ -53,10 +53,12 @@
         <div class="age">
           <p>Age</p>
           <div id="age-range"></div>
+          <div class="row"><input type="text" class="col s2" name="" id="initial_age" style="color: white"><div class="col s8"></div><input type="text" class="col s2" name="" id="final_age" style="color: white"></div>
         </div>
         <div class="income">
           <p>Price</p>
           <div id="income-range"></div>
+          <div class="row"><input type="text" id="purchase_initial" class="col s2" name="" style="color: white"><div class="col s8"></div><input type="text" class="col s2" name="" id="purchase_final" style="color: white"></div>
         </div>
         <div class="sex">
               <div class="input-field col s12">
@@ -65,7 +67,6 @@
                   <option value="2">Female</option>
                   <option value="3">Both</option>
               </select>
-              
       </div>
         </div>
         <button class="submit-black">Build</button>
@@ -100,5 +101,48 @@
      thousand: '.'
    })
     });
+
+    var input=document.getElementById('initial_age');
+      slider.noUiSlider.on('update',function(values,handle){
+        var sliderval=slider.noUiSlider.get();
+        input.value=sliderval[0];
+      });
+
+      input.addEventListener('change',function(){
+        slider.noUiSlider.set([this.value,null]);
+      });
+
+      var input2=document.getElementById('final_age');
+      slider.noUiSlider.on('update',function(values,handle){
+        var sliderval=slider.noUiSlider.get();
+        input2.value=sliderval[1];
+      });
+
+      input2.addEventListener('change',function(){
+        slider.noUiSlider.set([null,this.value]);
+      });
+
+      var input3=document.getElementById('purchase_initial');
+      slider2.noUiSlider.on('update',function(){
+        var sliderval=slider2.noUiSlider.get();
+        input3.value=sliderval[0];
+      });
+
+    //Purchasing power slider linking
+    //End of Purchasing power slider linking
+
+      input3.addEventListener('change',function(){
+        slider2.noUiSlider.set([this.value,null]);
+      });
+
+      var input4=document.getElementById('purchase_final');
+      slider2.noUiSlider.on('update',function(){
+        var sliderval=slider2.noUiSlider.get();
+        input4.value=sliderval[1];
+      });
+
+      input4.addEventListener('change',function(){
+        slider2.noUiSlider.set([null,this.value]);
+      });
   </script>
 </html>
