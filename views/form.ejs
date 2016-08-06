@@ -21,7 +21,7 @@
       <form action="/pvt/addProduct" method="POST">
         <div class="col s4 m4 l4 options">
           <h5 style="border-bottom: 1px solid rgba(255,255,255,0.5);">New Campaign<br><span class="close"><a href="/">X</a></span><span class="dark-blue-text"><%if(govt){%>Government<%} else{%>Private<%}%></span></h5>
-          <input type="text" name="name" id="name" placeholder="Campaign Name" style="font-size: 20px;max-width: 30vw;margin-left: 5%;min-height: 50px">
+          <input type="text" name="name" id="name" placeholder="Campaign Name" style="font-size: 20px;max-width: 30vw;margin-left: 5%;min-height: 50px;color: white">
           <button class="submit-black">Build</button>
         </div>
         <div class="col s4 m4 l4 second">
@@ -30,20 +30,20 @@
             <p class="places">
               <div class="row" style="margin: 0px!important">
               <div class="input-field col s12 m6 l6">
-                <input type="checkbox" id="chennai" class="filled-in">
+                <input type="checkbox" id="chennai" name="chennai" class="filled-in">
                 <label for="chennai">Chennai</label>
               </div>
               <div class="input-field col s12 m6 l6">
-                <input type="checkbox" id="delhi" class="filled-in">
+                <input type="checkbox" id="delhi" name="delhi" class="filled-in">
                 <label for="delhi">New Delhi</label>
               </div></div>
               <div class="row" style="margin: 0px!important">
               <div class="input-field col s12 m6 l6 ">
-                <input type="checkbox" id="mumbai" class="filled-in">
+                <input type="checkbox" id="mumbai" name="mumbai" class="filled-in">
                 <label for="mumbai">Mumbai</label>
               </div>
               <div class="input-field col s12 m6 l6">
-                <input type="checkbox" id="bangalore" class="filled-in">
+                <input type="checkbox" id="bangalore" name="bangalore" class="filled-in">
                 <label for="bangalore">Bangalore</label>
               </div>
             </div>
@@ -52,12 +52,12 @@
           <div class="age">
             <p>Age</p>
             <div id="age-range"></div>
-            <div class="row"><input type="text" class="col s2" name="" id="initial_age" style="color: white"><div class="col s8"></div><input type="text" class="col s2" name="" id="final_age" style="color: white"></div>
+            <div class="row"><input type="text" class="col s2" name="agelower" id="initial_age" style="color: white"><div class="col s8"></div><input type="text" class="col s2" name="agehigher" id="final_age" style="color: white"></div>
           </div>
           <div class="income">
             <p><%if(govt){%>Income<%} else{%>Purchasing Power<%}%></p>
             <div id="income-range"></div>
-            <div class="row"><input type="text" id="purchase_initial" class="col s2" name="" style="color: white"><div class="col s8"></div><input type="text" class="col s2" name="" id="purchase_final" style="color: white"></div>
+            <div class="row"><input type="text" id="purchase_initial" class="col s2" name="incomelower" style="color: white"><div class="col s8"></div><input type="text" class="col s2" name="incomehigher" id="purchase_final" style="color: white"></div>
           </div>
           <div class="sex">
             <div class="input-field col s12">
@@ -155,6 +155,15 @@
       input4.addEventListener('change',function(){
         slider2.noUiSlider.set([null,this.value]);
       });
+
+      $('input[type=checkbox]').click(function(){
+        var active = $('input[type=checkbox]:checked').length;
+        if(active>2){
+          alert('Maximum 2 Cities Allowed!');
+          $(this).prop('checked',false);
+        }
+      });
+
     });
   </script>
   </body>
