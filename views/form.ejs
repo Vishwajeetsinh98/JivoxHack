@@ -28,9 +28,25 @@
           <div class="location">
             <p style="font-size: 26px;color: white">Location</p>
             <p class="places">
-              <div class="input-field">
-                
+              <div class="row" style="margin: 0px!important">
+              <div class="input-field col s12 m6 l6">
+                <input type="checkbox" id="chennai" class="filled-in">
+                <label for="chennai">Chennai</label>
               </div>
+              <div class="input-field col s12 m6 l6">
+                <input type="checkbox" id="delhi" class="filled-in">
+                <label for="delhi">New Delhi</label>
+              </div></div>
+              <div class="row" style="margin: 0px!important">
+              <div class="input-field col s12 m6 l6 ">
+                <input type="checkbox" id="mumbai" class="filled-in">
+                <label for="mumbai">Mumbai</label>
+              </div>
+              <div class="input-field col s12 m6 l6">
+                <input type="checkbox" id="bangalore" class="filled-in">
+                <label for="bangalore">Bangalore</label>
+              </div>
+            </div>
             </p>
           </div>
           <div class="age">
@@ -142,4 +158,9 @@
     });
   </script>
   </body>
+  <style>
+    .select-dropdown, .caret{
+      color: white;
+    }
+  </style>
 </html>
