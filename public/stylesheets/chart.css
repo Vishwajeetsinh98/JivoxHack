@@ -42,6 +42,9 @@ option{
   background: #000;
 }
 
+.select-dropdown li{
+  color: #fff;
+}
 
 .age{
   margin-top: -10%;
