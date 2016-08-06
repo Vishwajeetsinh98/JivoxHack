@@ -5,5 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res) {
   res.render('home', { title: 'Jivox' });
 });
-
+router.get('/addNew', function(req,res){
+  var isGovt = req.query.govt;
+  res.render('form',{govt: isGovt});
+});
 module.exports = router;
