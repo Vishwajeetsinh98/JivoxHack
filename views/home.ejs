@@ -15,7 +15,6 @@
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-
 		<!--Import jQuery before materialize.js-->
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     	<script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
@@ -34,7 +33,7 @@
 
 		<!-- Header-->
 
-		
+
 
 		<div class="row header">
 				<header class="custom-blue-background row">
@@ -42,7 +41,7 @@
 						<div class="row first-row-in-header"><h3 class="white-text col s6 push-s2 left-align">LOREM IPSUM DOLOR</h3></div>
 						<div class="row second-row-in-header"><h5 class="white-text col s6 push-s2 left-align">SIT AMET LOREM IPSUM</h5></div>
 
-						<div class="col s12 button-row-in-header"><br><br><button class="btn white blue-text col s2 push-s2">Get Started</button></div>
+						<div class="col s12 button-row-in-header"><br><br><button class="btn white blue-text col s2 push-s2" id="modal-trigger">Get Started</button></div>
 					</div>
 				</header>
 				</div>
@@ -75,6 +74,25 @@
 		</div>
 		<!--End of content-->
 
+		<div id="modal1" class="modal">
+    	<div class="modal-content row">
+				<div class="left col s6 m6 l6">
+					<h5>Government</h5>
+					<img src="images/government.png" class="center">
+					<div class="button-row-in-header">
+						<button class="btn white blue-text"><a href="/addNew?govt=true">Begin</a></button>
+					</div>
+				</div>
+				<div class="right col s6 m6 l6">
+					<h5>Private</h5>
+					<img src="images/private2.png" class="center">
+					<div class="button-row-in-header">
+						<button class="btn white blue-text" href="addNew?govt=false"><a href="/addNew?govt=false">Begin</a></button>
+					</div>
+				</div>
+    	</div>
+  	</div>
+
 		<!-- Footer-->
 		<footer class="page-footer">
 			<div class="container footer-content">
@@ -84,11 +102,14 @@
 					<a class="grey-text text-lighten-4 right" href="#!">Legal Information</a>
 					<a class="grey-text text-lighten-4 right" href="#!">Terms of Service</a>
 					<a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
-
 			</div>
 
 		</footer>
+		<script>
+			$('#modal-trigger').click(function(){
+				$('#modal1').openModal();
+			});
+		</script>
 		<!-- End of footer-->
-
 	</body>
 </html>

@@ -15,7 +15,7 @@
     <div class="row">
       <form action="/pvt/addProduct" method="POST">
         <div class="col s4 m4 l4 options">
-          <h5 style="border-bottom: 1px solid rgba(255,255,255,0.5);">New Campaign<br><span class="close"><a href="/">X</a></span><span class="dark-blue-text">Private</span></h5>
+          <h5 style="border-bottom: 1px solid rgba(255,255,255,0.5);">New Campaign<br><span class="close"><a href="/">X</a></span><span class="dark-blue-text"><%if(govt){%>Government<%} else{%>Private<%}%></span></h5>
           <input type="text" name="name" id="name" placeholder="Campaign Name" style="font-size: 20px;max-width: 30vw;margin-left: 5%;min-height: 50px">
           <button class="submit-black">Build</button>
         </div>
@@ -31,7 +31,7 @@
             <div id="age-range"></div>
           </div>
           <div class="income">
-            <p>Purchasing Power</p>
+            <p><%if(govt){%>Income<%} else{%>Purchasing Power<%}%></p>
             <div id="income-range"></div>
           </div>
           <div class="sex">
@@ -46,32 +46,41 @@
       </div>
       </form>
     <script>
-    var slider = document.getElementById('age-range');
-    noUiSlider.create(slider, {
-      start: [20, 80],
-      connect: true,
-      range: {
-        'min': 0,
-        'max': 100
-      },
-      format: wNumb({
-     decimals: 0, // default is 2
-        thousand: '.'
-   }) 
-    });
-    var slider2 = document.getElementById('income-range');
-    noUiSlider.create(slider2, {
-      start: [0, 10000],
-      connect: true,
-      range: {
-        'min': 0,
-        'max': 10000
-      },
-      format: wNumb({
-     
-     decimals: 0,
-     thousand: '.'
-   })
+    $(document).ready(function(){
+
+      var govt = $('.dark-blue-text').html()=="Government";
+      if(govt){
+        $('form').attr('action','/govt/addProduct');
+      } else{
+        $('form').attr('action','/pvt/addProduct');
+      }
+      var slider = document.getElementById('age-range');
+      noUiSlider.create(slider, {
+        start: [20, 80],
+        connect: true,
+        range: {
+          'min': 0,
+          'max': 100
+        },
+        format: wNumb({
+       decimals: 0, // default is 2
+          thousand: '.'
+     })
+      });
+      var slider2 = document.getElementById('income-range');
+      noUiSlider.create(slider2, {
+        start: [0, 10000],
+        connect: true,
+        range: {
+          'min': 0,
+          'max': 10000
+        },
+        format: wNumb({
+
+       decimals: 0,
+       thousand: '.'
+     })
+      });
     });
   </script>
   </body>

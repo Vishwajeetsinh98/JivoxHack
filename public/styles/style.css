@@ -80,3 +80,31 @@ footer.page-footer{
 footer a{
 	margin-left: 10px; cursor: pointer;
 }
+
+#modal1{
+	background: #5690cf;
+}
+#modal1 h5{
+	font-size: 20px;
+	color: white;
+	text-align: center;
+}
+#modal1 img{
+	width: 80%;
+	margin-left: 10%;
+}
+#modal1 img:hover{
+	border: 5px solid white;
+	border-radius: 50%;
+	transition: 0.3s;
+}
+#modal1 .left{
+	border-right: 2px solid white;
+}
+#modal1 .button-row-in-header button{
+	font-size: 18px;
+	border-radius: 50px 50px 50px 50px;
+	box-shadow: 2px 2px 1px 0 #6a6a6a;
+	margin-top: 10%;
+	margin-left: 30%;
+}
