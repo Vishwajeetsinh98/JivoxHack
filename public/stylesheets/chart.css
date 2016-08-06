@@ -42,12 +42,15 @@ option{
   background: #000;
 }
 
+.select-dropdown li{
+  color: #fff;
+}
 
 .age{
   margin-top: -10%;
 }
 .age, .income{
-  padding-bottom: 6%;
+  padding-bottom: 0%;
 }
 .places{
   position: relative;
@@ -83,7 +86,7 @@ option{
   padding: 1% 10%;
   min-width: 90%;
   margin-left: 5%;
-  margin-top: 25%;
+  margin-top: 2%;
 }
 .submit-black:focus{
   background: #2b2a2a!important;
