@@ -56,3 +56,15 @@ header{
 
 /*Content of the home screen ends here*/
 
+/*Footer starts here*/
+footer.page-footer{
+	background: rgb(46,45,45);
+}
+.footer-content{
+	padding-bottom: 20px; color: #fff;
+}
+
+footer a{
+	margin-left: 10px; cursor: pointer;
+}
+
