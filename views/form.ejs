@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel="stylesheet" href="nouislider.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="form.css">
+    <script src="jquery.js"></script>
+    <script src="materialize.js"></script>
+    <script src="nouislider.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <form action="/pvt/addProduct" method="POST">
+        <div class="col s4 m4 l4 options">
+          <h5 style="border-bottom: 1px solid rgba(255,255,255,0.5);">New Campaign<br><span class="close"><a href="/">X</a></span><span class="dark-blue-text">Private</span></h5>
+          <input type="text" name="name" id="name" placeholder="Campaign Name" style="font-size: 20px;max-width: 30vw;margin-left: 5%;min-height: 50px">
+          <button class="submit-black">Build</button>
+        </div>
+        <div class="col s4 m4 l4 second">
+          <div class="location">
+            <p style="font-size: 26px;color: white">Location</p>
+            <p class="places">
+              Bangalore, Chennai, Mumbai, Delhi
+            </p>
+          </div>
+          <div class="age">
+            <p>Age</p>
+            <div id="age-range"></div>
+          </div>
+          <div class="income">
+            <p>Purchasing Power</p>
+            <div id="income-range"></div>
+          </div>
+          <div class="sex">
+            <ul class="sex-select">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col s4 m4 l4 image">
+          <img src="Logo.png">
+        </div>
+      </div>
+      </form>
+    </div>
+    <script>
+      var slider = document.getElementById('age-range');
+      noUiSlider.create(slider, {
+        start: [20, 80],
+        connect: true,
+        range: {
+          'min': 0,
+          'max': 100
+        }
+      });
+      var slider2 = document.getElementById('income-range');
+      noUiSlider.create(slider2, {
+        start: [0, 10000],
+        connect: true,
+        range: {
+          'min': 0,
+          'max': 10000
+        }
+      });
+    </script>
+  </body>
+</html>

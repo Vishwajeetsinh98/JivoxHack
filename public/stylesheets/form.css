@@ -1,0 +1,94 @@
+*{
+  font-family: 'Montserrat';
+}
+body{
+  background: #282a2a;
+  overflow-y: hidden;
+}
+a{
+  color: white;
+  position: relative;
+  left: 27vw;
+  bottom: 2.2vw;
+}
+input[type=text]{
+  margin-top: 2%;
+  outline: none!important;
+}
+input[type=text]:focus{
+  border-bottom: 1px solid white!important;
+  box-shadow: 0 1px 0 0 white!important;
+  outline: none!important;
+  color: white;
+}
+.options{
+  background: #5690cf;
+  min-height: 100vh!important;
+  padding: 0px!important;
+}
+.options h5{
+  margin: 0%;
+  padding: 5%;
+  background: #5690cf;
+  font-weight: 300;
+  color: white;
+  font-size: 30px;
+}
+.dark-blue-text{
+  color: rgba(0,0,0,0.5);
+  font-size: 18px;
+  margin-left: -3%;
+}
+.second{
+  background: #282a2a;
+  margin-top: 8.6%;
+  min-height: 100vh!important;
+  border-top: 1px solid rgba(255,255,255,0.4);
+  border-right: 1px solid rgba(255,255,255,0.4);
+}
+.location, .age, .income, .sex{
+  padding: 3%;
+  margin-top: -6%;
+  padding-left: 6%;
+  padding-bottom: 3%;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+.age, .income{
+  padding-bottom: 6%;
+}
+.places{
+  color: white;
+  font-size: 13px;
+  margin-top: -5%;
+}
+.age p, .income p{
+  padding: 3%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  color: white;
+  font-size: 26px;
+}
+.submit-black{
+  border: 3px solid white;
+  color: white;
+  background: #5690cf;
+  font-size: 30px;
+  padding: 1% 10%;
+  min-width: 90%;
+  margin-left: 5%;
+  margin-top: 105%;
+}
+.submit-black:focus{
+  background: #5690cf!important;
+}
+.image{
+  background: #282a2a;
+  border-top: 1px solid rgba(255,255,255,0.4)!important;
+  min-height: 100vw!important;
+  margin-top: 8.6%!important;
+}
+.image img{
+  width: 80%;
+  margin-top: 30%;
+  margin-left: 10%;
+}
