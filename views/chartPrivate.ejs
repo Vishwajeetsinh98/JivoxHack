@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/chart.css">
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/materialize/dist/js/materialize.js"></script>
+    <script src="../bower_components/wnumb/wNumb.js"></script>
     <script src="/javascript/nouislider.js"></script>
   </head>
   <body>
@@ -65,7 +66,11 @@
       range: {
         'min': 0,
         'max': 100
-      }
+      },
+      format: wNumb({
+     decimals: 0, // default is 2
+        thousand: '.'
+   }) 
     });
     var slider2 = document.getElementById('income-range');
     noUiSlider.create(slider2, {
@@ -74,7 +79,12 @@
       range: {
         'min': 0,
         'max': 10000
-      }
+      },
+      format: wNumb({
+     
+     decimals: 0,
+     thousand: '.'
+   })
     });
   </script>
 </html>
