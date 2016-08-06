@@ -1,11 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('Private');
-});
-
 router.post('/addProduct', function(req,res){
   var campaignName = req.body.name;
   var category = req.body.category;
@@ -13,10 +8,11 @@ router.post('/addProduct', function(req,res){
   var ageHigher = req.body.agehigher;
   var priceLower = req.body.pricelower;
   var priceHigher = req.body.pricehigher;
-  var location1 = req.body.location1;
-  var location2 = req.body.location2;
-  var location3 = req.body.location3;
-  var location4 = req.body.location4;
+  var bangalore = req.body.bangalore;
+  var chennai = req.body.chennai;
+  var delhi = req.body.delhi;
+  var mumbai = req.body.mumbai;
+
   var data = {
     isGovt: false,
     campaignName: campaignName,
@@ -25,10 +21,10 @@ router.post('/addProduct', function(req,res){
     ageHigher: ageHigher,
     priceLower: priceLower,
     priceHigher: priceHigher,
-    location1: location1,
-    location2: location2,
-    location3: location3,
-    location4: location4
+    bangalore: bangalore,
+    chennai: chennai,
+    delhi: delhi,
+    mumbai: mumbai
   };
   res.json(data);
 });
