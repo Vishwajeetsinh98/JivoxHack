@@ -7,7 +7,7 @@ body{
 
 /*Header and Nav starts here*/
 .brand-logo{
-	margin-top: 30px; margin-left: 100px;
+	margin-top: 30px; margin-left: 50px;
 }
 
 .brand-logo .fa{
@@ -28,6 +28,10 @@ header{
 
 .header-text-box button{
 	font-size: 18px; border-radius: 50px 50px 50px 50px; box-shadow: 2px 2px 1px 0 #6a6a6a; position: relative; top: -70px;
+}
+
+.first-row-in-header{
+	font-weight: 700;
 }
 
 .second-row-in-header{
@@ -52,6 +56,10 @@ header{
 
 .home-halfs .fa{
 	font-size: 64px;
+}
+
+.written-content{
+	margin: auto; margin: 5px;
 }
 
 /*Content of the home screen ends here*/
