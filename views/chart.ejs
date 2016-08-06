@@ -28,7 +28,7 @@
           <p>Location</p>
           <p class="places">
             <form action="#">
-            <div class="row">  
+            <div class="row">
                           <p class="col m6">
                             <input type="checkbox" id="bangalore" />
                             <label for="bangalore">Bangalore</label>
@@ -53,12 +53,12 @@
         <div class="age">
           <p>Age</p>
           <div id="age-range"></div>
-          <div class="row"><input type="text" class="col s2" name="" id="initial_age" style="color: white"><div class="col s8"></div><input type="text" class="col s2" name="" id="final_age" style="color: white"></div>
+          <div class="row"><input type="text" class="col s4" name="" id="initial_age" style="color: white"><div class="col s8"></div><input type="text" class="col s4" name="" id="final_age" style="color: white"></div>
         </div>
         <div class="income">
           <p>Price</p>
           <div id="income-range"></div>
-          <div class="row"><input type="text" id="purchase_initial" class="col s2" name="" style="color: white"><div class="col s8"></div><input type="text" class="col s2" name="" id="purchase_final" style="color: white"></div>
+          <div class="row"><input type="text" id="purchase_initial" class="col s4" name="" style="color: white"><div class="col s8"></div><input type="text" class="col s4" name="" id="purchase_final" style="color: white"></div>
         </div>
         <div class="sex">
               <div class="input-field col s12">
@@ -85,7 +85,7 @@
       format: wNumb({
      decimals: 0, // default is 2
         thousand: '.'
-   }) 
+   })
     });
     var slider2 = document.getElementById('income-range');
     noUiSlider.create(slider2, {
@@ -96,7 +96,7 @@
         'max': 10000
       },
       format: wNumb({
-     
+
      decimals: 0,
      thousand: '.'
    })
