@@ -11,6 +11,8 @@ router.post('/addProduct', function(req,res){
   var chennai = req.body.chennai;
   var delhi = req.body.delhi;
   var mumbai = req.body.mumbai;
+  var sexFilter = req.body.sexfilter;
+
   priceLower.replace('.','');
   priceHigher.replace('.','');
   bangalore = bangalore=='on';
@@ -27,7 +29,9 @@ router.post('/addProduct', function(req,res){
     bangalore: bangalore,
     chennai: chennai,
     delhi: delhi,
-    mumbai: mumbai
+    mumbai: mumbai,
+    maleFilter: sexFilter==1 || sexFilter==3,
+    femaleFilter: sexFilter==2 || sexFilter==3
   };
   res.render('chart', data);
 });

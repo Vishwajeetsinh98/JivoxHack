@@ -18,6 +18,14 @@ router.post('/addProduct', function(req,res){
   var chennai = req.body.chennai;
   var delhi = req.body.delhi;
   var mumbai = req.body.mumbai;
+  var sexFilter = req.body.sexfilter;
+
+  incomeLower.replace('.','');
+  incomeHigher.replace('.','');
+  bangalore = bangalore=='on';
+  chennai = chennai=='on';
+  delhi = delhi=='on';
+  mumbai = mumbai=='on';
 
   var data = {
     isGovt: true,
@@ -31,8 +39,11 @@ router.post('/addProduct', function(req,res){
     bangalore: bangalore,
     chennai: chennai,
     delhi: delhi,
-    mumbai: mumbai
+    mumbai: mumbai,
+    maleFilter: sexFilter==1 || sexFilter==3,
+    femaleFilter: sexFilter==2 || sexFilter==3
   };
-  res.json(data);
+  res.render('chart',data);
+  //res.render('chart',data);
 });
 module.exports = router;
