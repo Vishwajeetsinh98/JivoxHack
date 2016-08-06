@@ -1,0 +1,17 @@
+{
+  "name": "Horsemen",
+  "description": "Descriptive analysis",
+  "main": "",
+  "authors": [
+    "Rahul Krishna <rkbalu524@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
