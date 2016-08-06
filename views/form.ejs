@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="materialize.min.css">
-    <link rel="stylesheet" href="nouislider.min.css">
+    <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="/stylesheets/nouislider.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="form.css">
-    <script src="jquery.js"></script>
-    <script src="materialize.js"></script>
-    <script src="nouislider.js"></script>
+    <link rel="stylesheet" href="/stylesheets/form.css">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/materialize/dist/js/materialize.js"></script>
+    <script src="../bower_components/wnumb/wNumb.js"></script>
+    <script src="/javascript/nouislider.js"></script>
   </head>
   <body>
     <div class="row">
@@ -40,30 +41,38 @@
           </div>
         </div>
         <div class="col s4 m4 l4 image">
-          <img src="Logo.png">
+          <img src="/images/Logo.png">
         </div>
       </div>
       </form>
-    </div>
     <script>
-      var slider = document.getElementById('age-range');
-      noUiSlider.create(slider, {
-        start: [20, 80],
-        connect: true,
-        range: {
-          'min': 0,
-          'max': 100
-        }
-      });
-      var slider2 = document.getElementById('income-range');
-      noUiSlider.create(slider2, {
-        start: [0, 10000],
-        connect: true,
-        range: {
-          'min': 0,
-          'max': 10000
-        }
-      });
-    </script>
+    var slider = document.getElementById('age-range');
+    noUiSlider.create(slider, {
+      start: [20, 80],
+      connect: true,
+      range: {
+        'min': 0,
+        'max': 100
+      },
+      format: wNumb({
+     decimals: 0, // default is 2
+        thousand: '.'
+   }) 
+    });
+    var slider2 = document.getElementById('income-range');
+    noUiSlider.create(slider2, {
+      start: [0, 10000],
+      connect: true,
+      range: {
+        'min': 0,
+        'max': 10000
+      },
+      format: wNumb({
+     
+     decimals: 0,
+     thousand: '.'
+   })
+    });
+  </script>
   </body>
 </html>

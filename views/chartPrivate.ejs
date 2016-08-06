@@ -10,6 +10,14 @@
     <script src="../bower_components/materialize/dist/js/materialize.js"></script>
     <script src="../bower_components/wnumb/wNumb.js"></script>
     <script src="/javascript/nouislider.js"></script>
+
+    <title>Government</title>
+
+    <script type="text/javascript">
+       $(document).ready(function() {
+        $('select').material_select();
+        });
+    </script>
   </head>
   <body>
 
@@ -50,9 +58,14 @@
           <div id="income-range"></div>
         </div>
         <div class="sex">
-          <ul class="sex-select">
-            <li></li>
-          </ul>
+              <div class="input-field col s12">
+                <select>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+                  <option value="3">Both</option>
+              </select>
+              
+      </div>
         </div>
         <button class="submit-black">Build</button>
       </div>

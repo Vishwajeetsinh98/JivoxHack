@@ -6,6 +6,10 @@ body{
 }
 
 /*Header and Nav starts here*/
+
+svg{
+	opacity: 0;
+}
 .brand-logo{
 	margin-top: 30px; margin-left: 50px;
 }
