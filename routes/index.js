@@ -7,6 +7,7 @@ router.get('/', function(req, res) {
 });
 router.get('/addNew', function(req,res){
   var isGovt = req.query.govt;
+  isGovt = isGovt==="true";
   res.render('form',{govt: isGovt});
 });
 module.exports = router;
