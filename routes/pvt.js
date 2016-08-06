@@ -33,4 +33,8 @@ router.post('/addProduct', function(req,res){
   res.json(data);
 });
 
+router.get('/chart',function(req,res){
+  res.render('chartPrivate');
+});
+
 module.exports = router;

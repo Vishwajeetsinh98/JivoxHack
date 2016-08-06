@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel="stylesheet" href="/stylesheet/nouislider.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/stylesheet/chart.css">
+    <script src="jquery.js"></script>
+    <script src="materialize.js"></script>
+    <script src="/javascript/nouislider.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col s4 m4 l4 options">
+        <h5>Campaign Name<br><span class="close"><a href="/">X</a></span><span class="dark-blue-text">Private</span></h5>
+        <div class="location">
+          <p style="font-size: 26px;color: white">Location</p>
+          <p class="places">
+            Bangalore, Chennai, Mumbai, Delhi
+          </p>
+        </div>
+        <div class="age">
+          <p>Age</p>
+          <div id="age-range"></div>
+        </div>
+        <div class="income">
+          <p>Price</p>
+          <div id="income-range"></div>
+        </div>
+        <div class="sex">
+          <ul class="sex-select">
+            <li></li>
+          </ul>
+        </div>
+        <button class="submit-black">Build</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    var slider = document.getElementById('age-range');
+    noUiSlider.create(slider, {
+      start: [20, 80],
+      connect: true,
+      range: {
+        'min': 0,
+        'max': 100
+      }
+    });
+    var slider2 = document.getElementById('income-range');
+    noUiSlider.create(slider2, {
+      start: [0, 10000],
+      connect: true,
+      range: {
+        'min': 0,
+        'max': 10000
+      }
+    });
+  </script>
+</html>
