@@ -68,6 +68,12 @@ header{
 	height: 200px; 
 }
 
+.bottom-graph-container{
+	padding: 0 !important; margin: 0 !important; margin-bottom: -26px !important;
+}
+.bottom-graph-container img{
+	width: 100%;padding: 0 !important; margin: 0 !important; left: 0; 
+}
 /*Content of the home screen ends here*/
 
 /*Footer starts here*/
