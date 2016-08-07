@@ -5,6 +5,7 @@ body{
   background: #282a2a;
   overflow-y: hidden;
 }
+
 a{
   color: white;
   position: relative;
@@ -29,6 +30,8 @@ input[type=text]:focus{
 .options h5{
   margin: 0%;
   padding: 5%;
+  padding-top: 0;
+  padding-bottom: 0;
   background: #5690cf;
   font-weight: 300;
   color: white;
@@ -37,14 +40,19 @@ input[type=text]:focus{
 .dark-blue-text{
   color: rgba(0,0,0,0.5);
   font-size: 18px;
-  margin-left: -3%;
+  margin-left: -5%;
 }
 .second{
   background: #282a2a;
-  margin-top: 8.6%;
   min-height: 100vh!important;
   border-top: 1px solid rgba(255,255,255,0.4);
   border-right: 1px solid rgba(255,255,255,0.4);
+}
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+  color: pink;
 }
 .location, .age, .income, .sex{
   padding: 3%;
@@ -54,7 +62,8 @@ input[type=text]:focus{
   border-bottom: 1px solid rgba(255,255,255,0.4);
 }
 .age, .income{
-  padding-bottom: 6%;
+  padding-bottom: 1%;
+  padding-top: 5%;
 }
 .places{
   color: white;
@@ -63,20 +72,20 @@ input[type=text]:focus{
 }
 .age p, .income p{
   padding: 3%;
-  padding-top: 0%;
+  padding-top: 2%;
   padding-bottom: 0%;
   color: white;
-  font-size: 26px;
+  font-size: 16px;
 }
 .submit-blue{
   border: 3px solid white;
   color: white;
   background: #5690cf;
-  font-size: 30px;
+  font-size: 20px;
   padding: 1% 10%;
   min-width: 90%;
   margin-left: 5%;
-  margin-top: 85%;
+  margin-top: 57%;
 }
 .submit-blue:focus{
   background: #5690cf!important;
@@ -85,7 +94,6 @@ input[type=text]:focus{
   background: #282a2a;
   border-top: 1px solid rgba(255,255,255,0.4)!important;
   min-height: 100vw!important;
-  margin-top: 8.6%!important;
 }
 .image img{
   width: 80%;
