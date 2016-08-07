@@ -14,6 +14,9 @@ a{
   left: 27vw;
   bottom: 2.2vw;
 }
+.location *{
+  border: none!important;
+}
 .options{
   background: #2B2A2A;
   min-height: 100vh!important;
@@ -38,10 +41,13 @@ a{
   margin-top: -6%;
   padding-left: 6%;
   padding-bottom: 0%;
+
   border-bottom: 1px solid rgba(255,255,255,0.4);
   color: #fff;
 }
-
+.location{
+  border:none;
+}
 option{
   background: #000;
 }
@@ -95,4 +101,9 @@ option{
 }
 .submit-black:focus{
   background: #2b2a2a!important;
+}
+
+*
+{
+  font-size: 96.5% !important;
 }

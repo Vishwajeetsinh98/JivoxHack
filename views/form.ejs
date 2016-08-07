@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Centrix | Campaign</title>
     <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
     <link rel="stylesheet" href="/stylesheets/nouislider.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,12 +19,14 @@
     </script>
   </head>
   <body>
-    <div class="row">
+    <div class="row" >
       <form action="/pvt/addProduct" method="POST">
-        <div class="col s4 m4 l4 options">
+        <div class="col s4 m4 l4 options" style="padding-top: 20px!important">
           <h5 style="border-bottom: 1px solid rgba(255,255,255,0.5);">New Campaign<br><span class="close"><a href="/">X</a></span><span class="dark-blue-text"><%if(govt){%>Government<%} else{%>Private<%}%></span></h5>
-          <input type="text" name="name" id="name" placeholder="Campaign Name" style="font-size: 20px;max-width: 30vw;margin-left: 5%;min-height: 50px;color: white">
-          <div class="category">
+          <input type="text" name="name" id="name" placeholder="Campaign Name" style="font-size: 16px;max-width: 32vw;margin-left: 3%;min-height: 50px;color: white">
+
+
+          <div class="category" <%if(govt){%>style="visibility:hidden;"<%}%>>
             <div class="input-field col s12">
               <select style="" class="" name="category">
                 <option value="1">Cars</option>
@@ -33,11 +36,13 @@
                 <option value="5">Apparels</option>
             </select>
           </div></div>
-          <button class="submit-blue">Build</button>
+
+
+          <button class="submit-blue">BUILD</button>
         </div>
         <div class="col s4 m4 l4 second">
           <div class="location">
-            <p style="font-size: 26px;color: white;">Location</p>
+            <p style="font-size: 16px;color: white;margin-top:10%;">Location</p>
             <p class="places">
               <div class="row" style="margin: 0px!important">
               <div class="input-field col s12 m6 l6">
@@ -70,9 +75,9 @@
             <div id="income-range"></div>
             <div class="row"><input type="text" id="purchase_initial" class="col s2" name="incomelower" style="color: white"><div class="col s8"></div><input type="text" class="col s2" name="incomehigher" id="purchase_final" style="color: white"></div>
           </div>
-          <div class="sex">
+          <div class="sex" style="padding-top:20px; border:none;">
             <div class="input-field col s12">
-              <select style="" name="sexfilter">
+              <select name="sexfilter">
                 <option value="1">Male</option>
                 <option value="2">Female</option>
                 <option value="3">Both</option>

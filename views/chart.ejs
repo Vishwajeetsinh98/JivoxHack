@@ -30,7 +30,7 @@
                     <p>Location</p>
                     <p class="places">
                     <form action="#">
-                        <div class="row" ng-init='cities=[<%=bangalore%>,<%=chennai%>,<%=delhi%>,<%=mumbai%>]'>
+                        <div class="row" style="margin-bottom:0 !important;" ng-init='cities=[<%=bangalore%>,<%=chennai%>,<%=delhi%>,<%=mumbai%>]'>
                             <p class="col m6">
                                 <input type="checkbox" id="bangalore" ng-click='cities[0]=!cities[0]' <%if(bangalore){%>checked<%}%>>
                                 <label for="bangalore">Bangalore</label>
@@ -54,7 +54,7 @@
                 <div class="age">
                     <p>Age</p>
                     <div id="age-range"></div>
-                    <div class="row">
+                    <div class="row" style="margin-bottom:0 !important;">
                         <input type="text" ng-init='min_age="<%=ageLower%>"' ng-model="min_age" class="col s3" name="" id="initial_age" style="color: white">
                         <div class="col s8"></div>
                         <input type="text" class="col s3 push-l6 push-m1" ng-init='max_age="<%=ageHigher%>"' ng-model="max_age" name="" id="final_age" style="color: white">
@@ -63,7 +63,7 @@
                 <div class="income">
                     <p>Price</p>
                     <div id="income-range"></div>
-                    <div class="row">
+                    <div class="row" style="margin-bottom:0 !important;">
                         <input type="text" id="purchase_initial" ng-init='min_inc="<%=priceLower%>"' ng-model="min_inc" class="col s3" name="" style="color: white">
                         <div class="col s8"></div>
                         <input type="text" class="col s3 push-l6 push-m1" ng-init='max_inc="<%=priceHigher%>"' ng-model="max_inc" name="" id="purchase_final" style="color: white">
@@ -134,7 +134,7 @@
                               for(var i=0;i<locData.length;i++){
                                 locData[i] = locData[i];
                               }
-                              
+
                               locData.pop();
 
                               var lineChart= new Chart(view_chart, {
