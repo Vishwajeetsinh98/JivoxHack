@@ -3,7 +3,7 @@
 
 ###Technologies used
 ===
-Frontend:
+Frontend:  
 	- Angular  
 	- Materialize  
 	- Chart.js  
@@ -12,7 +12,7 @@ Frontend:
 	- WOW.js  
 	- Animate.css  
 
-Backend:
+Backend:  
 	- Node.js  
 	- Express  
 
