@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/stylesheets/form.css">
+    <link rel="icon" href="/images/Favicon.png">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/materialize/dist/js/materialize.js"></script>
     <script src="../bower_components/wnumb/wNumb.js"></script>
@@ -22,7 +23,17 @@
         <div class="col s4 m4 l4 options">
           <h5 style="border-bottom: 1px solid rgba(255,255,255,0.5);">New Campaign<br><span class="close"><a href="/">X</a></span><span class="dark-blue-text"><%if(govt){%>Government<%} else{%>Private<%}%></span></h5>
           <input type="text" name="name" id="name" placeholder="Campaign Name" style="font-size: 20px;max-width: 30vw;margin-left: 5%;min-height: 50px;color: white">
-          <button class="submit-black">Build</button>
+          <div class="category">
+            <div class="input-field col s12">
+              <select style="" class="" name="category">
+                <option value="1">Cars</option>
+                <option value="2">Mobiles</option>
+                <option value="3">Laptops</option>
+                <option value="4">Jewellery</option>
+                <option value="5">Apparels</option>
+            </select>
+          </div></div>
+          <button class="submit-blue">Build</button>
         </div>
         <div class="col s4 m4 l4 second">
           <div class="location">

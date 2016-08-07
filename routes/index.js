@@ -5,6 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res) {
   res.render('home', { title: 'Jivox' });
 });
+
+//Route To Add A New Product For Analysis
 router.get('/addNew', function(req,res){
   var isGovt = req.query.govt;
   isGovt = isGovt==="true";

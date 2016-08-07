@@ -68,7 +68,7 @@ input[type=text]:focus{
   color: white;
   font-size: 26px;
 }
-.submit-black{
+.submit-blue{
   border: 3px solid white;
   color: white;
   background: #5690cf;
@@ -76,9 +76,9 @@ input[type=text]:focus{
   padding: 1% 10%;
   min-width: 90%;
   margin-left: 5%;
-  margin-top: 105%;
+  margin-top: 85%;
 }
-.submit-black:focus{
+.submit-blue:focus{
   background: #5690cf!important;
 }
 .image{
@@ -91,4 +91,12 @@ input[type=text]:focus{
   width: 80%;
   margin-top: 30%;
   margin-left: 10%;
+}
+.category-select{
+  background: #5690cf;
+  padding: 3%;
+}
+.category-select option{
+  background: #5690cf!important;
+  color: white!important;
 }

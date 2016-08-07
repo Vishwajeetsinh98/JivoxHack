@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+
+//Add Product for Private Institutes
 router.post('/addProduct', function(req,res){
   var campaignName = req.body.name;
   var ageLower = req.body.agelower;
@@ -12,6 +14,7 @@ router.post('/addProduct', function(req,res){
   var delhi = req.body.delhi;
   var mumbai = req.body.mumbai;
   var sexFilter = req.body.sexfilter;
+  var category = req.body.category;
 
   priceLower.replace('.','');
   priceHigher.replace('.','');
@@ -31,7 +34,8 @@ router.post('/addProduct', function(req,res){
     delhi: delhi,
     mumbai: mumbai,
     maleFilter: sexFilter==1 || sexFilter==3,
-    femaleFilter: sexFilter==2 || sexFilter==3
+    femaleFilter: sexFilter==2 || sexFilter==3,
+    category: category
   };
   res.render('chart', data);
 });

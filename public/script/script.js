@@ -16,9 +16,30 @@ controllers.controller('mainController',function($scope)
     //cities filter
     //$scope.cities=[true,false,false,true];
 
-    $scope.x=function()
+    //Simulating Purchasing power
+    $scope.inc_factor;
+    $scope.category_inc=function(category)
     {
-      alert();
+      if(category==1)
+      {
+        $scope.inc_factor=0.25;
+      }
+      else if(category==2)
+      {
+        $scope.inc_factor=0.03;
+      }
+      else if(category==3)
+      {
+        $scope.inc_factor=0.06;
+      }
+      else if(category==4)
+      {
+        $scope.inc_factor=0.13;
+      }
+      else {
+        $scope.inc_factor=0.08;
+      }
+
     }
     //Watching for changes. making page Dynamic
     $scope.$watchCollection('sex_filter_toggle', function()
@@ -51,7 +72,7 @@ controllers.controller('mainController',function($scope)
       var city2_loc;
 
       var bangalore_loc=['Koramangala','Halasur','Majestic','JP Nagar','Ejipura'];
-      var chennai_loc=['Egmore','Centtral','Marina','T Nagar','Erode'];
+      var chennai_loc=['Egmore','Central','Marina','T Nagar','Erode'];
       var mumbai_loc=['Vashi','Thane','Powai','Mulund','Andheri'];
       var delhi_loc=['Mayur Vihar','Chandni Chowk','Connaught Place','Vikaspuri','Lajpat Nagar'];
 
@@ -242,7 +263,7 @@ var city1_loc;
 var city2_loc;
 
 var bangalore_loc=['Koramangala','Halasur','Majestic','JP Nagar','Ejipura'];
-var chennai_loc=['Egmore','Centtral','Marina','T Nagar','Erode'];
+var chennai_loc=['Egmore','Central','Marina','T Nagar','Erode'];
 var mumbai_loc=['Vashi','Thane','Powai','Mulund','Andheri'];
 var delhi_loc=['Mayur Vihar','Chandni Chowk','Connaught Place','Vikaspuri','Lajpat Nagar'];
 
@@ -361,7 +382,7 @@ filters.filter('age_filter',function()
 //Income Filter
 filters.filter('income_filter',function()
 {
-  return function(data,min_inc,max_inc)
+  return function(data,min_inc,max_inc,inc_factor)
   {
     var income_filtered_list=[];
     if(min_inc=="" || max_inc=="")
@@ -370,9 +391,9 @@ filters.filter('income_filter',function()
     }
     for(var i=0;i<data.length;i++)
     {
-      if(parseInt(data[i].income)>=parseInt(min_inc))
+      if(parseInt(data[i].income)>=parseInt(min_inc)*parseInt(inc_factor))
       {
-        if(parseInt(data[i].income)<=parseInt(max_inc))
+        if(parseInt(data[i].income)<=parseInt(max_inc)*parseInt(inc_factor))
         {
           income_filtered_list.push(data[i]);
         }

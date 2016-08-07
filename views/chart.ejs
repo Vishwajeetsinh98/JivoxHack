@@ -6,6 +6,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/stylesheets/chart.css">
+        <link rel="icon" href="/images/Favicon.png">
         <script src="../../bower_components/jquery/dist/jquery.js"></script>
         <script src="../bower_components/materialize/dist/js/materialize.js"></script>
         <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
@@ -22,7 +23,8 @@
     </head>
     <body ng-app='app'>
         <div class="row" ng-controller='mainController'>
-            <div class="col s3 m3 l3 options">
+            {{category_inc(parseInt(category))}}
+            <div class="col s3 m3 l3 options" ng-init='category=<%=category%>'>
                 <h5><%=campaignName%><br><span class="close"><a href="/">X</a></span><span class="dark-blue-text"><%if(isGovt){%>Government<%} else{%>Private<%}%></span></h5>
                 <div class="location">
                     <p>Location</p>
@@ -123,6 +125,8 @@
                               var countData = density_graph_count.replace('[','').replace(']','').split(',');
                               var locData =  density_graph_loc.replace('[','').replace(']','').split(',');
 
+
+
                               for(var i=0;i<countData.length;i++){
                                 countData[i] = parseInt(countData[i])*97;
                               }
@@ -130,6 +134,9 @@
                               for(var i=0;i<locData.length;i++){
                                 locData[i] = locData[i];
                               }
+                              
+                              locData.pop();
+
                               var lineChart= new Chart(view_chart, {
                                    type:'line',
                                    data: {
@@ -283,11 +290,11 @@
                             <label for="male-box">Male</label>
                             </p>
                             </form-->
-                        <div ng-cloak="" ng-repeat='person in (filtered_data = (data | age_filter:min_age:max_age | income_filter:min_inc:max_inc | sex_filter:sex_filter_toggle | city_filter:cities))'>
+                        <div ng-cloak="" ng-repeat='person in (filtered_data = (data | age_filter:min_age:max_age | income_filter:min_inc:max_inc:inc_factor | sex_filter:sex_filter_toggle | city_filter:cities))'>
                         </div>
                         <div ng-cloak="" ng-repeat='person in (age_filtered_data = (data | age_filter:min_age:max_age | city_filter:cities))'>
                         </div>
-                        <div ng-cloak="" ng-repeat='person in (inc_filtered_data = (data | income_filter:min_inc:max_inc | city_filter:cities))'>
+                        <div ng-cloak="" ng-repeat='person in (inc_filtered_data = (data | income_filter:min_inc:max_inc:inc_factor | city_filter:cities))'>
                         </div>
                     </div>
                 </div>

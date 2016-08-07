@@ -13,12 +13,12 @@
 		<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
 
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<link rel="icon" href="/images/Favicon.png">
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<!--Import jQuery before materialize.js-->
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    	<script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
-
+    <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
     	<!--WOW.js and Animate.css-->
     	<link rel="stylesheet" type="text/css" href="bower_components/wow/css/libs/animate.css">
     	<script type="text/javascript" src="bower_components/wow/dist/wow.js"></script>
@@ -29,38 +29,38 @@
 
 	<body>
 		<!-- Navigation starts here -->
-			<nav class="custom-blue-background">
+		<div class="backgroundimage">
+			<nav class="">
 			<div class="nav-wrapper">
-		<a href="#!" class="brand-logo"><i class="fa fa-bar-chart"></i></a>
+		<a href="/" class="brand-logo"><img src="/images/Logo.png" style="width: 30%"></a>
 
 
 		</nav>
 		<!--Navigation ends here-->
-
 
 		<!-- Header-->
 
 
 
 		<div class="row header">
-				<header class="custom-blue-background row">
+				<header class="row">
 					<div class="row header-text-box center col s12">
-						<div class="row first-row-in-header"><h3 class="white-text col s6 push-s2 left-align">LOREM IPSUM DOLOR</h3></div>
-						<div class="row second-row-in-header"><h5 class="white-text col s6 push-s2 left-align">SIT AMET LOREM IPSUM</h5></div>
+						<div class="row first-row-in-header"><h3 class="white-text col s6 push-s2 left-align">CENTRIX - SENSES METRICS</h3></div>
+						<div class="row second-row-in-header"><h5 class="white-text col s6 push-s2 left-align">Simplifying Census Analysis Using Rich Graphs</h5></div>
 
-						<div class="col s12 button-row-in-header"><br><br><button class="btn white blue-text col s2 push-s2" id="modal-trigger">Get Started</button></div>
+						<div class="col s12 button-row-in-header" style="margin-top: 2%;"><br><br><button class="btn white blue-text col s2 push-s2" id="modal-trigger">Get Started</button></div>
 					</div>
 				</header>
-				</div>
+			</div></div>
 		<!-- End of Header-->
 
 		<!--Content-->
 		<div class="container main-content">
 			<div class="row">
-				<h5 class="col s12 center">How it works?</h5>
+				<h5 class="col s12 center">HOW IT WORKS?</h5>
 				<div class="col m8 home-halfs wow fadeInLeft">
 					<img src="images/compose.png" class="col s3"><div class="col s7 left-align written-content">Enter brief data about your product on our website</div>
-				</div>
+				</div><br><br><br><br><br><br><br>
 				<div class="col m4 home-halfs">
 
 				</div>
@@ -70,7 +70,7 @@
 				</div>
 				<div class="col m8 home-halfs wow fadeInRight">
 					<div class="col s8 right-align written-content">Let us analyze your data</div><img src="images/server.png" class="col s3">
-				</div>
+				</div><br><br><br><br><br><br><br>
 				<div class="col m8 home-halfs wow fadeInLeft">
 					<img src="images/presentation.png" class="col s3"><div class="col s8 left-align written-content">We'll present you all the infographics that you need to prepare your marketing stragety</div>
 				</div>
@@ -79,7 +79,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!--End of content-->
 
 		<div id="modal1" class="modal">
@@ -105,24 +105,29 @@
 				<img src="images/bottom.png">
 			</div>
 		</div>
-		<!-- Footer-->
 		<footer class="page-footer">
-
-			<div class="container footer-content">
-
-					© 2015 Copyright Text
-					<a class="grey-text text-lighten-4 right" href="#!">Contact</a>
-					<a class="grey-text text-lighten-4 right" href="#!">Legal Information</a>
-					<a class="grey-text text-lighten-4 right" href="#!">Terms of Service</a>
-					<a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
+			<div class="container">
+				<div class="row">
+					<div class="l6 s12">
+						<img src='/images/Logo.png' style="width: 25%">
+					</div>
+					<div class="l4 offset-l2 s12 right">
+						<p style="color: white;font-size: 20px">Our Team</p>
+						<ul>
+							<li><a href="https://www.facebook.com/vickyjuly09?fref=ts&ref=br_tf">Vignesh Shankar</a></li>
+							<li><a href="https://github.com/Vishwajeetsinh98">Vishwajeetsinh Jadeja</a></li>
+							<li><a href="https://github.com/AnkurSarode">Ankur Sarode</a></li>
+							<li><a href="https://www.facebook.com/rajatmukati005?fref=ts&ref=br_tf">Rajat Mukati</a></li>
+							<li><a href="https://github.com/RahulAKrishna">Rahul Krishna</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
-
 		</footer>
 		<script>
 			$('#modal-trigger').click(function(){
 				$('#modal1').openModal();
 			});
 		</script>
-		<!-- End of footer-->
 	</body>
 </html>

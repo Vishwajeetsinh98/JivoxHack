@@ -6,6 +6,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static("public" ));
 
+
+//The AddProduct Route for Govt Use, Takes the Initial Values of Filters
+//renders the graphs in the next page
 router.post('/addProduct', function(req,res){
   var campaignName = req.body.name;
   var ageLower = req.body.agelower;
@@ -19,6 +22,7 @@ router.post('/addProduct', function(req,res){
   var delhi = req.body.delhi;
   var mumbai = req.body.mumbai;
   var sexFilter = req.body.sexfilter;
+  var category = req.body.category;
 
   incomeLower.replace('.','');
   incomeHigher.replace('.','');
@@ -41,7 +45,8 @@ router.post('/addProduct', function(req,res){
     delhi: delhi,
     mumbai: mumbai,
     maleFilter: sexFilter==1 || sexFilter==3,
-    femaleFilter: sexFilter==2 || sexFilter==3
+    femaleFilter: sexFilter==2 || sexFilter==3,
+    category: category
   };
   res.render('chart',data);
   //res.render('chart',data);
