@@ -166,7 +166,7 @@ $scope.graph_age=function(){
     var city2_loc;
 
     var bangalore_loc=['Koramangala','Halasur','Majestic','JP Nagar','Ejipura'];
-    var chennai_loc=['Egmore','Centtral','Marina','T Nagar','Erode'];
+    var chennai_loc=['Egmore','Central','Marina','T Nagar','Erode'];
     var mumbai_loc=['Vashi','Thane','Powai','Mulund','Andheri'];
     var delhi_loc=['Mayur Vihar','Chandni Chowk','Connaught Place','Vikaspuri','Lajpat Nagar'];
 
