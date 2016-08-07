@@ -1,148 +1,388 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.min.css">
-    <link rel="stylesheet" href="/stylesheets/nouislider.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/stylesheets/chart.css">
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/materialize/dist/js/materialize.js"></script>
-    <script src="../bower_components/wnumb/wNumb.js"></script>
-    <script src="/javascript/nouislider.js"></script>
+    <head>
+        <link rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.min.css">
+        <link rel="stylesheet" href="/stylesheets/nouislider.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/stylesheets/chart.css">
+        <script src="../../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/materialize/dist/js/materialize.js"></script>
+        <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="../bower_components/chartjs/Chart.js"></script>
+        <script src="../bower_components/wnumb/wNumb.js"></script>
+        <script src="/javascript/nouislider.js"></script>
+        <script type="text/javascript" src="/script/script.js"></script>
+        <title>Government</title>
+        <script type="text/javascript">
+            $(document).ready(function() {
+             $('select').material_select();
+             });
+        </script>
+    </head>
+    <body ng-app='app'>
+        <div class="row" ng-controller='mainController'>
+            <div class="col s3 m3 l3 options">
+                <h5><%=campaignName%><br><span class="close"><a href="/">X</a></span><span class="dark-blue-text"><%if(isGovt){%>Government<%} else{%>Private<%}%></span></h5>
+                <div class="location">
+                    <p>Location</p>
+                    <p class="places">
+                    <form action="#">
+                        <div class="row" ng-init='cities=[<%=bangalore%>,<%=chennai%>,<%=delhi%>,<%=mumbai%>]'>
+                            <p class="col m6">
+                                <input type="checkbox" id="bangalore" ng-click='cities[0]=!cities[0]' <%if(bangalore){%>checked<%}%>>
+                                <label for="bangalore">Bangalore</label>
+                            </p>
+                            <p class="col m6">
+                                <input type="checkbox" id="chennai" ng-click='cities[1]=!cities[1]' <%if(chennai){%>checked<%}%>>
+                                <label for="chennai">Chennai</label>
+                            </p>
+                            <p class="col m6">
+                                <input type="checkbox" id="delhi" ng-click='cities[2]=!cities[2]' <%if(delhi){%>checked<%}%>>
+                                <label for="delhi">Delhi</label>
+                            </p>
+                            <p class="col m6">
+                                <input type="checkbox" id="mumbai" ng-click='cities[3]=!cities[3]' <%if(mumbai){%>checked<%}%>>
+                                <label for="mumbai">Mumbai</label>
+                            </p>
+                        </div>
+                    </form>
+                    </p>
+                </div>
+                <div class="age">
+                    <p>Age</p>
+                    <div id="age-range"></div>
+                    <div class="row">
+                        <input type="text" ng-init='min_age="<%=ageLower%>"' ng-model="min_age" class="col s3" name="" id="initial_age" style="color: white">
+                        <div class="col s8"></div>
+                        <input type="text" class="col s3 push-l6 push-m1" ng-init='max_age="<%=ageHigher%>"' ng-model="max_age" name="" id="final_age" style="color: white">
+                    </div>
+                </div>
+                <div class="income">
+                    <p>Price</p>
+                    <div id="income-range"></div>
+                    <div class="row">
+                        <input type="text" id="purchase_initial" ng-init='min_inc="<%=priceLower%>"' ng-model="min_inc" class="col s3" name="" style="color: white">
+                        <div class="col s8"></div>
+                        <input type="text" class="col s3 push-l6 push-m1" ng-init='max_inc="<%=priceHigher%>"' ng-model="max_inc" name="" id="purchase_final" style="color: white">
+                    </div>
+                </div>
+                <p style='margin: 0px;margin-left:25px;color:white;padding-top: 5px;'>Target Audience:</p>
+                <div class="row" style="margin-left:0px;padding-left: 5px;padding-bottom:0px;border-bottom: 1px solid rgba(255,255,255,0.4)" ng-init='sex_filter_toggle=[<%=maleFilter%>,<%=femaleFilter%>]'>
+                    <p class="col m6">
+                        <input type="checkbox" id="male-aud" ng-click='sex_filter_toggle[0]=!sex_filter_toggle[0]' <%if(maleFilter){%> checked<%}%> >
+                        <label for="male-aud">Male</label>
+                    </p>
+                    <p class="col m6">
+                        <input type="checkbox" id="female-aud"  ng-click='sex_filter_toggle[1]=!sex_filter_toggle[1]' <%if(femaleFilter){%> checked<%}%> >
+                        <label for="female-aud">Female</label>
+                    </p>
+                </div>
+                <p style='margin-left:25px;color:white;margin-bottom: 1px;padding: 0px'>Choose Graph Type:</p>
+                <div class="row" style="margin-left:10px;padding-bottom:0px;">
+                    <p class="col m6">
+                        <input type="checkbox" checked id="default" ng-click='defaultToggle=!defaultToggle'>
+                        <label for="default">Default</label>
+                    </p>
+                    <p class="col m6">
+                        <input type="checkbox" id="age-location"  ng-click='ageToggle=!ageToggle'>
+                        <label for="age-location">Age-Locality</label>
+                    </p>
+                    <p class="col m6">
+                        <input type="checkbox" id="inc-location"  ng-click='incToggle=!incToggle'>
+                        <label for="inc-location">Income-Locality</label>
+                    </p>
+                </div>
+                <!--  <button class="submit-black">Build</button> -->
+            </div>
+            <div class="col s8 m9 l9 push-l3">
+                <div>
+                    <div>
+                        <div id="age-slider"></div>
+                        <!--    <input ng-init='min_age="<%=ageLower%>"' ng-model="min_age">
+                            <input ng-init='max_age="<%=ageHigher%>"' ng-model="max_age">
+                            <br><br>
+                            <input ng-init='min_inc=""' ng-model="min_inc">
+                            <input ng-init='max_inc=""' ng-model="max_inc"> -->
+                        <div class="row" ng-show='defaultToggle' style="margin-top:80px;margin-left:50px;">
+                            <div class="col m10 l10">
+                                <canvas id="viewsChart" height="200"></canvas>
+                                {{graph_it()}}
+                                <div id="density-graph-count" style="display:none;">{{city_count}}</div>
+                                <div id="density-graph-loc" style="display:none;">{{city_loc}}</div>
+                            </div>
+                        </div>
+                        <script>
+                            setTimeout(density_graph,2000);
 
-    <title>Government</title>
+                            function density_graph()
+                            {
+                              var view_chart=$('#viewsChart');
+                              var density_graph_count=document.getElementById('density-graph-count').innerHTML;
+                              var density_graph_loc=document.getElementById('density-graph-loc').innerHTML;
+                              var countData = density_graph_count.replace('[','').replace(']','').split(',');
+                              var locData =  density_graph_loc.replace('[','').replace(']','').split(',');
 
-    <script type="text/javascript">
-       $(document).ready(function() {
-        $('select').material_select();
+                              for(var i=0;i<countData.length;i++){
+                                countData[i] = parseInt(countData[i])*97;
+                              }
+
+                              for(var i=0;i<locData.length;i++){
+                                locData[i] = locData[i];
+                              }
+                              var lineChart= new Chart(view_chart, {
+                                   type:'line',
+                                   data: {
+                                     labels: locData,
+                                     datasets: [
+                                       {
+                                         label:'Census',
+                                         backgroundColor: "rgba(75,192,192,0.4)",
+                                         borderColor: "rgba(75,192,192,1)",
+                                         borderDashOffset: 0.0,
+                                         pointBorderColor: "rgba(75,192,192,1)",
+                                         pointBackgroundColor: "#fff",
+                                         pointBorderWidth: 20,
+                                         pointHoverRadius: 15,
+                                         pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                         pointHoverBorderColor: "rgba(220,220,220,1)",
+                                         pointHoverBorderWidth: 2,
+                                         pointRadius: 1,
+                                         pointHitRadius: 10,
+                                         data: countData,
+                                         showLine: false,
+                                       }
+                                     ]
+                                   }
+                                 });
+                            }
+
+
+                        </script>
+                        <div class="row" ng-show='ageToggle' style="margin-top:80px;margin-left:50px;">
+                            <div class="col m10 l10">
+                                <canvas id="ageChart" height="200"></canvas>
+                                {{graph_age()}}
+                                <div id="age-graph-count" style="display:none;">{{age_count}}</div>
+                                <div id="age-graph-loc" style="display:none;">{{age_loc}}</div>
+                            </div>
+                        </div>
+                        <script>
+                            setTimeout(age_graph,2000);
+
+                            function age_graph()
+                            {
+                              var view_chart=$('#ageChart');
+                              var density_graph_count=document.getElementById('age-graph-count').innerHTML;
+                              var density_graph_loc=document.getElementById('age-graph-loc').innerHTML;
+                              var countData = density_graph_count.replace('[','').replace(']','').split(',');
+                              var locData =  density_graph_loc.replace('[','').replace(']','').split(',');
+
+                              for(var i=0;i<countData.length;i++){
+                                countData[i] = parseInt(countData[i])*97;
+                              }
+
+                              for(var i=0;i<locData.length;i++){
+                                locData[i] = locData[i];
+                              }
+                              var lineChart= new Chart(view_chart, {
+                                   type:'line',
+                                   data: {
+                                     labels: locData,
+                                     datasets: [
+                                       {
+                                         label:'Age Count ',
+                                         backgroundColor: "rgba(2,161,227,0.4)",
+                                         borderColor: "rgba(2,161,227,1)",
+                                         borderDashOffset: 0.0,
+                                         lineTension:0,
+                                         pointBorderColor: "rgba(75,192,192,1)",
+                                         pointBackgroundColor: "#fff",
+                                         pointBorderWidth: 10,
+                                         pointHoverRadius: 10,
+                                         pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                         pointHoverBorderColor: "rgba(220,220,220,1)",
+                                         pointHoverBorderWidth: 2,
+                                         pointRadius: 1,
+                                         pointHitRadius: 10,
+                                         data: countData,
+                                         showLine: true,
+                                         fill:false
+                                       }
+                                     ]
+                                   }
+                                 });
+                            }
+
+
+                        </script>
+                        <div class="row" ng-show='incToggle' style="margin-top:80px;margin-left:50px;">
+                            <div class="col m10 l10">
+                                <canvas id="incChart" height="200"></canvas>
+                                {{graph_inc()}}
+                                <div id="inc-graph-count" style="display:none;">{{inc_count}}</div>
+                                <div id="inc-graph-loc" style="display:none;">{{inc_loc}}</div>
+                            </div>
+                        </div>
+                        <script>
+                            setTimeout(age_graph,2000);
+
+                            function inc_graph()
+                            {
+                              var view_chart=$('#incChart');
+                              var density_graph_count=document.getElementById('inc-graph-count').innerHTML;
+                              var density_graph_loc=document.getElementById('inc-graph-loc').innerHTML;
+                              var countData = density_graph_count.replace('[','').replace(']','').split(',');
+                              var locData =  density_graph_loc.replace('[','').replace(']','').split(',');
+
+                              for(var i=0;i<countData.length;i++){
+                                countData[i] = parseInt(countData[i])*97;
+                              }
+
+                              for(var i=0;i<locData.length;i++){
+                                locData[i] = locData[i];
+                              }
+                              var lineChart= new Chart(view_chart, {
+                                   type:'line',
+                                   data: {
+                                     labels: locData,
+                                     datasets: [
+                                       {
+                                         label:'Income Count ',
+                                         backgroundColor: "rgba(2,161,227,0.4)",
+                                         borderColor: "rgba(2,161,227,1)",
+                                         borderDashOffset: 0.0,
+                                         pointBorderColor: "rgba(75,192,192,1)",
+                                         pointBackgroundColor: "#fff",
+                                         pointBorderWidth: 10,
+                                         pointHoverRadius: 10,
+                                         pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                         pointHoverBorderColor: "rgba(220,220,220,1)",
+                                         pointHoverBorderWidth: 2,
+                                         pointRadius: 1,
+                                         pointHitRadius: 10,
+                                         data: countData,
+                                         showLine: true,
+                                         fill:true
+                                       }
+                                     ]
+                                   }
+                                 });
+                            }
+
+
+
+                        </script>
+                        <!--form>
+                            <p>
+                            <input type="checkbox" class="filled-in" id="female-box" ng-click='sex_filter_toggle[0]=!sex_filter_toggle[0]'/>
+                            <label for="female-box">Female</label>
+                            </p>
+                            <p>
+                            <input type="checkbox" class="filled-in" id="male-box" ng-click='sex_filter_toggle[1]=!sex_filter_toggle[1]'/>
+                            <label for="male-box">Male</label>
+                            </p>
+                            </form-->
+                        <div ng-cloak="" ng-repeat='person in (filtered_data = (data | age_filter:min_age:max_age | income_filter:min_inc:max_inc | sex_filter:sex_filter_toggle | city_filter:cities))'>
+                        </div>
+                        <div ng-cloak="" ng-repeat='person in (age_filtered_data = (data | age_filter:min_age:max_age | city_filter:cities))'>
+                        </div>
+                        <div ng-cloak="" ng-repeat='person in (inc_filtered_data = (data | income_filter:min_inc:max_inc | city_filter:cities))'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+    <div style="display: none" id="ageHolder"><%=ageLower%>,<%=ageHigher%></div>
+    <div style="display: none" id="incomeHolder"><%=priceLower%>,<%=priceHigher%></div>
+    <script>
+        $(document).ready(function(){
+          $('#graph-1').show();
+          $('#graph-2').hide();
+          $('#graph-3').hide();
+          var slider = document.getElementById('age-range');
+          noUiSlider.create(slider, {
+            start: $('#ageHolder').html().split(','),
+            connect: true,
+            range: {
+              'min': 0,
+              'max': 100
+            },
+            format: wNumb({
+           decimals: 0, // default is 2
+              thousand: '.'
+         })
+          });
+          var slider2 = document.getElementById('income-range');
+          noUiSlider.create(slider2, {
+            start: $('#incomeHolder').html().split(','),
+            connect: true,
+            range: {
+              'min': 0,
+              'max': 10000
+            },
+            format: wNumb({
+
+           decimals: 0,
+           thousand: '.'
+         })
+          });
+
+          $('.location input[type=checkbox]').click(function(){
+            var active = $('.location input[type=checkbox]:checked').length;
+            if(active>2){
+              alert('Maximum 2 Cities Allowed!');
+              $(this).prop('checked',false);
+              $( this ).trigger( "click" );
+            }
+          });
+
+
+          var input=document.getElementById('initial_age');
+            slider.noUiSlider.on('update',function(values,handle){
+              var sliderval=slider.noUiSlider.get();
+              input.value=sliderval[0];
+            });
+
+            input.addEventListener('change',function(){
+              slider.noUiSlider.set([this.value,null]);
+            });
+
+            var input2=document.getElementById('final_age');
+            slider.noUiSlider.on('update',function(values,handle){
+              var sliderval=slider.noUiSlider.get();
+              input2.value=sliderval[1];
+            });
+
+            input2.addEventListener('change',function(){
+              slider.noUiSlider.set([null,this.value]);
+            });
+
+            var input3=document.getElementById('purchase_initial');
+            slider2.noUiSlider.on('update',function(){
+              var sliderval=slider2.noUiSlider.get();
+              input3.value=sliderval[0];
+            });
+
+          //Purchasing power slider linking
+          //End of Purchasing power slider linking
+
+            input3.addEventListener('change',function(){
+              slider2.noUiSlider.set([this.value,null]);
+            });
+
+            var input4=document.getElementById('purchase_final');
+            slider2.noUiSlider.on('update',function(){
+              var sliderval=slider2.noUiSlider.get();
+              input4.value=sliderval[1];
+            });
+
+            input4.addEventListener('change',function(){
+              slider2.noUiSlider.set([null,this.value]);
+            });
         });
+
     </script>
-  </head>
-  <body>
-
-    <div class="row">
-      <div class="col s4 m3 l3 options">
-        <h5>Campaign Name<br><span class="close"><a href="/">X</a></span><span class="dark-blue-text">Private</span></h5>
-        <div class="location">
-          <p>Location</p>
-          <p class="places">
-            <form action="#">
-            <div class="row">
-                          <p class="col m6">
-                            <input type="checkbox" id="bangalore" />
-                            <label for="bangalore">Bangalore</label>
-                          </p>
-                          <p class="col m6">
-                            <input type="checkbox" id="chennai" />
-                            <label for="chennai">Chennai</label>
-                          </p>
-                          <p class="col m6">
-                            <input type="checkbox" id="delhi" />
-                            <label for="delhi">Delhi</label>
-                          </p>
-                          <p class="col m6">
-                            <input type="checkbox" id="mumbai" />
-                            <label for="mumbai">Mumbai</label>
-                          </p>    </div>
-            </form>
-          </p>
-
-        </div>
-
-        <div class="age">
-          <p>Age</p>
-          <div id="age-range"></div>
-          <div class="row"><input type="text" class="col s4" name="" id="initial_age" style="color: white"><div class="col s8"></div><input type="text" class="col s4" name="" id="final_age" style="color: white"></div>
-        </div>
-        <div class="income">
-          <p>Price</p>
-          <div id="income-range"></div>
-          <div class="row"><input type="text" id="purchase_initial" class="col s4" name="" style="color: white"><div class="col s8"></div><input type="text" class="col s4" name="" id="purchase_final" style="color: white"></div>
-        </div>
-        <div class="sex">
-              <div class="input-field col s12">
-                <select>
-                  <option value="1">Male</option>
-                  <option value="2">Female</option>
-                  <option value="3">Both</option>
-              </select>
-      </div>
-        </div>
-        <button class="submit-black">Build</button>
-      </div>
-    </div>
-  </body>
-  <script>
-    var slider = document.getElementById('age-range');
-    noUiSlider.create(slider, {
-      start: [20, 80],
-      connect: true,
-      range: {
-        'min': 0,
-        'max': 100
-      },
-      format: wNumb({
-     decimals: 0, // default is 2
-        thousand: '.'
-   })
-    });
-    var slider2 = document.getElementById('income-range');
-    noUiSlider.create(slider2, {
-      start: [0, 10000],
-      connect: true,
-      range: {
-        'min': 0,
-        'max': 10000
-      },
-      format: wNumb({
-
-     decimals: 0,
-     thousand: '.'
-   })
-    });
-
-    var input=document.getElementById('initial_age');
-      slider.noUiSlider.on('update',function(values,handle){
-        var sliderval=slider.noUiSlider.get();
-        input.value=sliderval[0];
-      });
-
-      input.addEventListener('change',function(){
-        slider.noUiSlider.set([this.value,null]);
-      });
-
-      var input2=document.getElementById('final_age');
-      slider.noUiSlider.on('update',function(values,handle){
-        var sliderval=slider.noUiSlider.get();
-        input2.value=sliderval[1];
-      });
-
-      input2.addEventListener('change',function(){
-        slider.noUiSlider.set([null,this.value]);
-      });
-
-      var input3=document.getElementById('purchase_initial');
-      slider2.noUiSlider.on('update',function(){
-        var sliderval=slider2.noUiSlider.get();
-        input3.value=sliderval[0];
-      });
-
-    //Purchasing power slider linking
-    //End of Purchasing power slider linking
-
-      input3.addEventListener('change',function(){
-        slider2.noUiSlider.set([this.value,null]);
-      });
-
-      var input4=document.getElementById('purchase_final');
-      slider2.noUiSlider.on('update',function(){
-        var sliderval=slider2.noUiSlider.get();
-        input4.value=sliderval[1];
-      });
-
-      input4.addEventListener('change',function(){
-        slider2.noUiSlider.set([null,this.value]);
-      });
-  </script>
 </html>

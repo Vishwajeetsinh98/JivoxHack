@@ -1,9 +1,13 @@
 *{
   font-family: 'Montserrat';
 }
-body{
+.options{
   overflow: hidden;
+  position: fixed;
+  left: 0px;
+  top: 0px;
 }
+
 a{
   color: white;
   position: relative;
@@ -59,6 +63,7 @@ option{
   margin-top: -5%;
   cursor: pointer;
   padding: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
 }
 
 .places-popout .input{
