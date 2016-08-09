@@ -76,6 +76,12 @@ controllers.controller('mainController',function($scope)
       var mumbai_loc=['Vashi','Thane','Powai','Mulund','Andheri'];
       var delhi_loc=['Mayur Vihar','Chandni Chowk','Connaught Place','Vikaspuri','Lajpat Nagar'];
 
+      if($scope.filtered_data.length==0)
+      {
+        $scope.city_count=[0,0,0,0,0,0,0,0,0,0];
+        return;
+      }
+
        for(var i=0;i<$scope.filtered_data.length;i++)
       {
         var city_count=0;
@@ -155,6 +161,7 @@ controllers.controller('mainController',function($scope)
 
       var city_count=city1_count.concat(city2_count);
       var city_loc=city1_loc.concat(city2_loc);
+
       $scope.city_count=city_count;
       $scope.city_loc=city_loc;
     }
@@ -164,11 +171,16 @@ $scope.graph_age=function(){
 
     var city1_loc;
     var city2_loc;
-
     var bangalore_loc=['Koramangala','Halasur','Majestic','JP Nagar','Ejipura'];
     var chennai_loc=['Egmore','Central','Marina','T Nagar','Erode'];
     var mumbai_loc=['Vashi','Thane','Powai','Mulund','Andheri'];
     var delhi_loc=['Mayur Vihar','Chandni Chowk','Connaught Place','Vikaspuri','Lajpat Nagar'];
+
+    if($scope.age_filtered_data.length==0)
+    {
+      $scope.age_count=[0,0,0,0,0,0,0,0,0,0];
+      return;
+    }
 
      for(var i=0;i<$scope.age_filtered_data.length;i++)
     {
@@ -267,6 +279,11 @@ var chennai_loc=['Egmore','Central','Marina','T Nagar','Erode'];
 var mumbai_loc=['Vashi','Thane','Powai','Mulund','Andheri'];
 var delhi_loc=['Mayur Vihar','Chandni Chowk','Connaught Place','Vikaspuri','Lajpat Nagar'];
 
+if($scope.inc_filtered_data.length==0)
+{
+  $scope.inc_count=[0,0,0,0,0,0,0,0,0,0];
+  return;
+}
  for(var i=0;i<$scope.inc_filtered_data.length;i++)
 {
   var city_count=0;
@@ -337,8 +354,10 @@ var delhi_loc=['Mayur Vihar','Chandni Chowk','Connaught Place','Vikaspuri','Lajp
   }
 }
 
+
 var city_loc_inc=city1_loc.concat(city2_loc);
 var city_count_inc=[0,0,0,0,0,0,0,0,0,0];
+
 for(i=0;i<$scope.inc_filtered_data.length;i++)
 {
   for(var j=0;j<city_loc_inc.length;j++)
@@ -391,12 +410,9 @@ filters.filter('income_filter',function()
     }
     for(var i=0;i<data.length;i++)
     {
-      if(parseInt(data[i].income)>=parseInt(min_inc)*parseInt(inc_factor))
+      if(parseInt(data[i].income)*inc_factor>=parseInt(max_inc))
       {
-        if(parseInt(data[i].income)<=parseInt(max_inc)*parseInt(inc_factor))
-        {
           income_filtered_list.push(data[i]);
-        }
       }
     }
     return income_filtered_list;

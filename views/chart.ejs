@@ -297,11 +297,11 @@
                             <label for="male-box">Male</label>
                             </p>
                             </form-->
-                        <div ng-cloak="" ng-repeat='person in (filtered_data = (data | age_filter:min_age:max_age | income_filter:min_inc:max_inc:inc_factor | sex_filter:sex_filter_toggle | city_filter:cities))'>
+                        <div ng-cloak="" ng-repeat='person in (filtered_data = (data | income_filter:min_inc:max_inc:inc_factor | age_filter:min_age:max_age  | sex_filter:sex_filter_toggle | city_filter:cities ))'>
                         </div>
-                        <div ng-cloak="" ng-repeat='person in (age_filtered_data = (data | age_filter:min_age:max_age | city_filter:cities))'>
+                        <div ng-cloak="" ng-repeat='person in (age_filtered_data = (data | age_filter:min_age:max_age | city_filter:cities | sex_filter:sex_filter_toggle))'>
                         </div>
-                        <div ng-cloak="" ng-repeat='person in (inc_filtered_data = (data | income_filter:min_inc:max_inc:inc_factor | city_filter:cities))'>
+                        <div ng-cloak="" ng-repeat='person in (inc_filtered_data = (data | income_filter:min_inc:max_inc:inc_factor | city_filter:cities | sex_filter:sex_filter_toggle))'>
                         </div>
                     </div>
                 </div>
@@ -313,9 +313,7 @@
     <div style="display: none" id="incomeHolder"><%=priceLower%>,<%=priceHigher%></div>
     <script>
         $(document).ready(function(){
-          $('#graph-1').show();
-          $('#graph-2').hide();
-          $('#graph-3').hide();
+
           var slider = document.getElementById('age-range');
           noUiSlider.create(slider, {
             start: $('#ageHolder').html().split(','),
@@ -335,7 +333,7 @@
             connect: true,
             range: {
               'min': 0,
-              'max': 10000
+              'max': 90000
             },
             format: wNumb({
 
