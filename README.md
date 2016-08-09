@@ -1,7 +1,7 @@
 #Centrix
 ##A helpful tool to analyze census data and crunch the numbers to get the best Marketting Strategy Plan to Companies.
 
-###The Website has been hosted here: www.centrix.herokuapp.com
+####The Website has been hosted here: centrix.herokuapp.com
 
 ###Technologies used
 ===
