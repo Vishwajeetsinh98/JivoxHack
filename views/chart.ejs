@@ -122,25 +122,25 @@
                               var view_chart=$('#viewsChart');
                               var density_graph_count=document.getElementById('density-graph-count').innerHTML;
                               var density_graph_loc=document.getElementById('density-graph-loc').innerHTML;
-                              var countData = density_graph_count.replace('[','').replace(']','').split(',');
-                              var locData =  density_graph_loc.replace('[','').replace(']','').split(',');
+                              var countDataDensity  = density_graph_count.replace('[','').replace(']','').split(',');
+                              var locDataDensity =  density_graph_loc.replace('[','').replace(']','').split(',');
 
 
 
-                              for(var i=0;i<countData.length;i++){
-                                countData[i] = parseInt(countData[i])*97;
+                              for(var i=0;i<countDataDensity.length;i++){
+                                countDataDensity[i] = parseInt(countDataDensity[i])*97;
                               }
 
-                              for(var i=0;i<locData.length;i++){
-                                locData[i] = locData[i];
+                              for(var i=0;i<locDataDensity.length;i++){
+                                locDataDensity[i] = locDataDensity[i];
                               }
 
-                              locData.pop();
+                              locDataDensity.pop();
 
                               var lineChart= new Chart(view_chart, {
                                    type:'line',
                                    data: {
-                                     labels: locData,
+                                     labels: locDataDensity,
                                      datasets: [
                                        {
                                          label:'Census',
@@ -156,7 +156,7 @@
                                          pointHoverBorderWidth: 2,
                                          pointRadius: 1,
                                          pointHitRadius: 10,
-                                         data: countData,
+                                         data: countDataDensity,
                                          showLine: false,
                                        }
                                      ]
@@ -183,23 +183,23 @@
                               var view_chart=$('#ageChart');
                               var density_graph_count=document.getElementById('age-graph-count').innerHTML;
                               var density_graph_loc=document.getElementById('age-graph-loc').innerHTML;
-                              var countData = density_graph_count.replace('[','').replace(']','').split(',');
-                              var locData =  density_graph_loc.replace('[','').replace(']','').split(',');
+                              var countDataAge = density_graph_count.replace('[','').replace(']','').split(',');
+                              var locDataAge =  density_graph_loc.replace('[','').replace(']','').split(',');
 
-                              for(var i=0;i<countData.length;i++){
-                                countData[i] = parseInt(countData[i])*97;
+                              for(var i=0;i<countDataAge.length;i++){
+                                countDataAge[i] = parseInt(countDataAge[i])*97;
                               }
 
-                              for(var i=0;i<locData.length;i++){
-                                locData[i] = locData[i];
+                              for(var i=0;i<locDataAge.length;i++){
+                                locDataAge[i] = locDataAge[i];
                               }
 
-                                locData.pop();
+                                locDataAge.pop();
 
                               var lineChart= new Chart(view_chart, {
                                    type:'line',
                                    data: {
-                                     labels: locData,
+                                     labels: locDataAge,
                                      datasets: [
                                        {
                                          label:'Age Count ',
@@ -216,7 +216,7 @@
                                          pointHoverBorderWidth: 2,
                                          pointRadius: 1,
                                          pointHitRadius: 10,
-                                         data: countData,
+                                         data: countDataAge,
                                          showLine: true,
                                          fill:false
                                        }
@@ -236,30 +236,30 @@
                             </div>
                         </div>
                         <script>
-                            setTimeout(age_graph,2000);
+                            setTimeout(inc_graph,2000);
 
                             function inc_graph()
                             {
                               var view_chart=$('#incChart');
                               var density_graph_count=document.getElementById('inc-graph-count').innerHTML;
                               var density_graph_loc=document.getElementById('inc-graph-loc').innerHTML;
-                              var countData = density_graph_count.replace('[','').replace(']','').split(',');
-                              var locData =  density_graph_loc.replace('[','').replace(']','').split(',');
+                              var countDataInc = density_graph_count.replace('[','').replace(']','').split(',');
+                              var locDataInc =  density_graph_loc.replace('[','').replace(']','').split(',');
 
-                              for(var i=0;i<countData.length;i++){
-                                countData[i] = parseInt(countData[i])*97;
+                              for(var i=0;i<countDataInc.length;i++){
+                                countDataInc[i] = parseInt(countDataInc[i])*97;
                               }
 
-                              for(var i=0;i<locData.length;i++){
-                                locData[i] = locData[i];
+                              for(var i=0;i<locDataInc.length;i++){
+                                locDataInc[i] = locDataInc[i];
                               }
 
-                              locData.pop();
+                              locDataInc.pop();
 
                               var lineChart= new Chart(view_chart, {
                                    type:'line',
                                    data: {
-                                     labels: locData,
+                                     labels: locDataInc,
                                      datasets: [
                                        {
                                          label:'Income Count ',
@@ -275,7 +275,7 @@
                                          pointHoverBorderWidth: 2,
                                          pointRadius: 1,
                                          pointHitRadius: 10,
-                                         data: countData,
+                                         data: countDataInc,
                                          showLine: true,
                                          fill:true
                                        }
